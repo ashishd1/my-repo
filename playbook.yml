@@ -1,5 +1,9 @@
 ---
 - hosts: webhost
+  become: true
+  become_user: root
+  become_method: su
+  become_flags: '-s /bin/sh'
   tasks: 
    - name: Install httpd service 
      yum: name=httpd state=latest
